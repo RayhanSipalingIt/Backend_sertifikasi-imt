@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Pendaftaran } from '../pendaftaran/pendaftaran.entity';
 
 @Entity()
 export class Users {
@@ -13,4 +14,8 @@ export class Users {
 
   @Column()
   gender: string;
+
+  // Relasi ke Pendaftaran
+  @OneToMany(() => Pendaftaran, (pendaftaran) => pendaftaran.user)
+  pendaftarans: Pendaftaran[];
 }

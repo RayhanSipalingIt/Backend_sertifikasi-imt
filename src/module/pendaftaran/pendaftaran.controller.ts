@@ -16,7 +16,7 @@ export class PendaftaranController {
   }
 
   @Post()
-  create(@Body() body) {
+  create(@Body() body: { siswa_id: number; kelas_id: number }) {
     return this.service.create(body);
   }
 
